@@ -52,15 +52,19 @@ const rArray = quizArray.map((quizItem, index) => {
     radioElement = document.querySelector("#" + r);
     //  event listener to the radio button click
     radioElement.addEventListener("click", function (e) {
-    // 1. add code to calculate the score here - code goes here
+      // code for task 1 goes here
       
-
     });
   }
 });
 
-//2. add EventListener on click of the submit button to display the score , and highlight the correct answers
+/* ********
+TASKS TODO:
+  1. Calculate the score as the total of the number of correct answers
 
-//3.  Reset the page with the reset button is clicked
+  2. Add an Event listener for the submit button, which will display the score and highlight the correct answers when the button is clicked
 
-//4. Add a countdown timer - When the time is up, end quiz and display Scores
+  3. Reset the page (remove the questions from the UI) when the reset button is clicked
+
+  4. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
+******** */
