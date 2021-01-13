@@ -3,7 +3,7 @@
 
 Complete the following tasks:
 
-1) Calculate the score 
+1) Calculate the score as the total of the number of correct answers 
 
 2) Add an Event listener for the submit button, which will display the score and highlight the correct answers when the button is clicked
 
