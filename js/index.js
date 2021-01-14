@@ -1,3 +1,21 @@
+/* ***************************
+  JWD JavaScript Assessment
+
+  This code is unfinished. You will need to study it to figure out what it does. Then you will need to use this and
+  your own code, to finish the app. 
+  
+  The tasks you need to do are below.
+
+    TASKS TODO:
+      1. Calculate the score as the total of the number of correct answers
+
+      2. Add an Event listener for the submit button, which will display the score and highlight the correct answers when the button is clicked
+
+      3. Reset the page (remove the questions from the UI) when the reset button is clicked (hint: search window.location)
+
+      4. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
+*************************** */
+
 window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
   start.addEventListener('click', function (e) {
@@ -42,30 +60,28 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  // Calculate the score
+  const calculateScore = () => {
+    let score = 0;
+    quizArray.map((quizItem, index) => {
+      for (let i = 0; i < 4; i++) {
+        //highlight the li if it is the correct answer
+        let li = `li_${index}_${i}`;
+        let r = `radio_${index}_${i}`;
+        liElement = document.querySelector('#' + li);
+        radioElement = document.querySelector('#' + r);
+
+        if (quizItem.a == i) {
+          liElement.style.backgroundColor = '#C5F5CF';
+        }
+
+        if (radioElement.checked) {
+          // code for task 1 goes here
+        }
+      }
+    });
+  };
+
   // call the displayQuiz function
   displayQuiz();
-
-  // Calculate the score
-  let finalScore = 0;
-  const rArray = quizArray.map((quizItem, index) => {
-    for (let i = 0; i < 4; i++) {
-      let r = `radio_${index}_${i}`;
-      radioElement = document.querySelector('#' + r);
-      //  event listener to the radio button click
-      radioElement.addEventListener('click', function (e) {
-        // code for task 1 goes here
-      });
-    }
-  });
-
-  /* ********
-    TASKS TODO:
-      1. Calculate the score as the total of the number of correct answers
-
-      2. Add an Event listener for the submit button, which will display the score and highlight the correct answers when the button is clicked
-
-      3. Reset the page (remove the questions from the UI) when the reset button is clicked
-
-      4. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
-  ******** */
 });
