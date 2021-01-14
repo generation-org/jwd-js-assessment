@@ -2,6 +2,8 @@
 
 ## Quiz Application
 
+The JavaScript code in index.js is unfinished. You will need to study it to figure out what it does. Then you will need to use the existing code and your own, to finish the app.
+
 Complete the following tasks:
 
 1. Calculate the score as the total of the number of correct answers
