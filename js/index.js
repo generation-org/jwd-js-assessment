@@ -30,18 +30,28 @@ window.addEventListener('DOMContentLoaded', () => {
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
   const quizArray = [
     {
-      q: 'Which is the third planet from the sun?',
-      o: ['Saturn', 'Earth', 'Pluto', 'Mars'],
+      q: "Which is the third planet from the sun?",
+      o: ["Saturn", "Earth", "Pluto", "Mars"],
       a: 1, // array index 1 - so Earth is the correct answer here
     },
     {
-      q: 'Which is the largest ocean on Earth?',
-      o: ['Atlantic Ocean', 'Indian Ocean', 'Arctic Ocean', 'Pacific Ocean'],
+      q: "Which is the largest ocean on Earth?",
+      o: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
       a: 3,
     },
     {
-      q: 'What is the capital of Australia',
-      o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
+      q: "What is the capital of Australia",
+      o: ["Sydney", "Canberra", "Melbourne", "Perth"],
+      a: 1,
+    },
+    {
+      q: "Who is going to complete this quiz site as per the rubric?",
+      o: ["Nathan", "Peter", "Paul", "Shrek"],
+      a: 1,
+    },
+    {
+      q: "Who is going to grade this quiz site as per the rubric?",
+      o: ["Lavina", "Peter", "Paul", "Shrek"],
       a: 1,
     },
   ];
