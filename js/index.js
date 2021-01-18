@@ -119,7 +119,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
     const scoreDisplay = document.querySelector("#score");
-    scoreDisplay.innerHTML = `TOTAL SCORE: ${score}`;
+    scoreDisplay.innerHTML = `Total Score: ${score}`;
     console.log("score");
   };
   // let btnSubmit = document.querySelector("#btnsubmit");
