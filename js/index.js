@@ -75,15 +75,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Calculate the score
   const calculateScore = () => {
-  
-   let totalScore = 0;
+    let totalScore = 0;
 
     quizArray.map((quizItem, index) => {
-      
       for (let i = 0; i < 4; i++) {
-      
-        
-
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
         let r = `radio_${index}_${i}`;
@@ -91,42 +86,36 @@ window.addEventListener('DOMContentLoaded', () => {
         radioElement = document.querySelector("#" + r);
 
         if (quizItem.a == i) {
-
-        
           //change background color of li element here
-          liElement.style.backgroundColor="green";
+          liElement.style.backgroundColor = "green";
         }
         if (radioElement.checked) {
           //code for task 1 goes here
           if (quizItem.a == i) {
             totalScore = totalScore + 1;
           }
-        } 
-      
+        }
       }
-
-       
-     
     });
 
-    document.getElementById("score").innerHTML=totalScore;
-   // const scoreCard=document.querySelector("#score");
-    //scoreCard.innerHTML=`you have got ${score}`;
+    document.getElementById("score").innerHTML = totalScore;
     
-  };
+  }
 
-  
   //Task 2
   const btnSubmit = document.querySelector("#btnSubmit");
 
   btnSubmit.addEventListener("click", calculateScore);
- 
-
+  //Task 4Reload the page when the reset button is clicked (hint: search window.location)
+  
 
   // call the displayQuiz function
   displayQuiz();
-  
-  
+   //const btnReset = document.querySelector("#btnReset");
+   //btnReset.addEventListener("click", window .location.reload);
+    
+ 
+//document.getElementById(("btnReset").reset());
   //Task 5
 
   //Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
@@ -148,6 +137,10 @@ window.addEventListener('DOMContentLoaded', () => {
       c_seconds = parseInt(total_seconds % 60);
       timer = setTimeout(CheckTime, 1000);
     }
+    
   }
   timer = setTimeout(CheckTime, 1000);
+  
 });
+
+  
