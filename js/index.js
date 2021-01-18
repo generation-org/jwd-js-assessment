@@ -100,9 +100,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Calculate the score
   const calculateScore = () => {
-    let score = 0;
+    let totalScore = 0;
     quizArray.map((quizItem, index) => {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 4; i++) {
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
         let r = `radio_${index}_${i}`;
@@ -111,24 +111,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
-	        document.getElementById("quizBlock").style.color = blue
+	        liElement.style.backgroundColor = "blue"
         }
 
         if (radioElement.checked) {
           // code for task 1 goes here
-            for (let i = 0; i < 6; i++) {
-              if (quizItem.a === radioElement.checked) {
-                score += 1;
-              } else {
-                score += 0;
-              }
-            }
-       return score;
-          // task 1 code end
+          if (quizItem.a == i)
+            totalScore += 1;
         }
-        // return score;
         }
+
     });
+    document.getElementById("score").innerHTML = totalScore;
+
   };
 
   // call the displayQuiz function
@@ -143,7 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const submit = document.querySelector("#btnSubmit");
   submit.addEventListener("click", function() {
-    alert("Sorry this does not work please try again later");
-  });
-  
+    calculateScore();
+// console.log(score)
+    });
   });
