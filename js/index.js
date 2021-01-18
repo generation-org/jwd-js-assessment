@@ -25,6 +25,31 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
   });
+
+  function startTimer(duration, display) {
+    var timer = duration,
+      minutes,
+      seconds;
+    setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      display.textContent = minutes + ":" + seconds;
+
+      if (--timer < 0) {
+        timer = duration;
+      }
+    }, 1000);
+  }
+
+  window.onload = function () {
+    var fiveMinutes = 60 * 5,
+      display = document.querySelector("#time");
+    startTimer(fiveMinutes, display);
+  };
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
@@ -77,7 +102,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const calculateScore = () => {
     let score = 0;
     quizArray.map((quizItem, index) => {
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 6; i++) {
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
         let r = `radio_${index}_${i}`;
@@ -86,19 +111,39 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
-	        // document.getElementById("quizBlock").style.backgroundColor = 'blue'
+	        document.getElementById("quizBlock").style.color = blue
         }
 
         if (radioElement.checked) {
           // code for task 1 goes here
-          // console.log(calculateScore)
-            
-          } 
+            for (let i = 0; i < 6; i++) {
+              if (quizItem.a === radioElement.checked) {
+                score += 1;
+              } else {
+                score += 0;
+              }
+            }
+       return score;
+          // task 1 code end
         }
-      }
+        // return score;
+        }
     });
   };
 
   // call the displayQuiz function
   displayQuiz();
+
+
+
+  const reset = document.querySelector("#btnReset");
+  reset.addEventListener("click", function() {
+    window.location.reload();
+});
+
+  const submit = document.querySelector("#btnSubmit");
+  submit.addEventListener("click", function() {
+  });
+
+    console.log(score);
 });
