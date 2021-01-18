@@ -79,22 +79,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // let btnSubmit = document.querySelector("#btnsubmit");
     // btnSubmit.addEventListener("click", submitQuiz);
-    // function submitQuiz(){
-    //   document.querySelector("#submitbutton", submitQuiz);
+    
     //   console.log("submit");
 
     // }
   //   let btnSubmit = document.querySelector("#btnSubmit");
   //   btnSubmit.addEventListener("click", submitQuiz);
 
-  //   function submitQuiz() {
-  //     if (document.querySelector == btnSubmit) {
-  //       alert("Submit");
-  //     } else {
-  //       alert("Submit Answers");
-  //     }
-  //   }
-  // };
+ 
 
   // Calculate the score
   const calculateScore = () => {
@@ -108,7 +100,7 @@ window.addEventListener("DOMContentLoaded", () => {
         radioElement = document.querySelector("#" + r);
 
         if (quizItem.a == i) {
-          liElement.style.backgroundColor = "green";
+          liElement.style.backgroundColor = "lightgreen";
         }
 
         if (radioElement.checked) {
