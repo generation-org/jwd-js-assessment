@@ -76,10 +76,10 @@ window.addEventListener('DOMContentLoaded', () => {
   // Calculate the score
   const calculateScore = () => {
   
-   
+   let score=0;
 
     quizArray.map((quizItem, index) => {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 4; i++) {
       //  quizItem[a] == quizItem[i];
         //score = score + 1; //Increment the score by 1 for every correct answer given
         //console.log("you got " + score "out of " + total);
@@ -91,31 +91,29 @@ window.addEventListener('DOMContentLoaded', () => {
         radioElement = document.querySelector("#" + r);
 
         if (quizItem.a == i) {
-          //change background color of li element here
+
         
-          liElement.style.color = "green";
-          radioElement.style.color="red";
-         
+          //change background color of li element here
+          liElement.style.backgroundColor="green";
         }
+        elseif(radioElement.checked && quizItem.a !=i)
+        {
+            
+          liElement.style.backgroundColor="red";
+        }
+      
+      }
 
         if (radioElement.checked) {
           //code for task 1 goes here
-          let score = 0;
-          let total = 5; //max score
-          for(let i=0;i<6;i++)
-          {
-            quizItem.a[i]==quizItem.o[i]
-            score=score+1;
-            
-          }
-           
+        if(quizItem.a ==i){
+          score+=1;
         }
-        alert("your score is ");
-        
-      }
+        }
      
     });
-    
+    const scoreCard=document.querySelector("#score");
+    scoreCard.innerHTML=`you have got ${score}`;
     
   };
 
