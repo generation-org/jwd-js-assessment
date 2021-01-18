@@ -86,10 +86,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
+	        // document.getElementById("quizBlock").style.backgroundColor = 'blue'
         }
 
         if (radioElement.checked) {
           // code for task 1 goes here
+          // console.log(calculateScore)
+            
+          } 
         }
       }
     });
