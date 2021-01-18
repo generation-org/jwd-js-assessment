@@ -100,7 +100,7 @@ window.addEventListener("DOMContentLoaded", () => {
         radioElement = document.querySelector("#" + r);
 
         if (quizItem.a == i) {
-          liElement.style.backgroundColor = "lightgreen";
+          liElement.style.backgroundColor = "green";
         }
 
         if (radioElement.checked) {
