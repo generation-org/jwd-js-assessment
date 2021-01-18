@@ -44,6 +44,16 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is the biggest animal on Earth?',
+      o: ['Elephant', 'Giraffe', 'Blue Whale', 'Sperm Whale'],
+      a: 2,
+    },
+    {
+      q: 'What is the fastest animal on Earth?',
+      o: ['Bluefin Tuna', 'Cheetah', 'Gazelle', 'Peregrin Falcon'],
+      a: 3
+    }
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -79,12 +89,22 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         if (radioElement.checked) {
-          // code for task 1 goes here
+         score++
         }
       }
     });
   };
+//Couldn't figure out where to put eventListner.
+//const submit = document.querySelector('#btnSubmit');
+//submit.addEventListener('click', function () {
+  //clearInterval(timer);
+  //calculateScore();
+  //};
+  
+  
 
   // call the displayQuiz function
   displayQuiz();
 });
+
+
