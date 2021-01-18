@@ -76,13 +76,13 @@ window.addEventListener('DOMContentLoaded', () => {
   // Calculate the score
   const calculateScore = () => {
   
-   let score=0;
+   let totalScore = 0;
 
     quizArray.map((quizItem, index) => {
+      
       for (let i = 0; i < 4; i++) {
-      //  quizItem[a] == quizItem[i];
-        //score = score + 1; //Increment the score by 1 for every correct answer given
-        //console.log("you got " + score "out of " + total);
+      
+        
 
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
@@ -96,20 +96,22 @@ window.addEventListener('DOMContentLoaded', () => {
           //change background color of li element here
           liElement.style.backgroundColor="green";
         }
-        
+        if (radioElement.checked) {
+          //code for task 1 goes here
+          if (quizItem.a == i) {
+            totalScore = totalScore + 1;
+          }
+        } 
       
       }
 
-        if (radioElement.checked) {
-          //code for task 1 goes here
-        if(quizItem.a ==i){
-          score+=1;
-        }
-        }
+       
      
     });
-    const scoreCard=document.querySelector("#score");
-    scoreCard.innerHTML=`you have got ${score}`;
+
+    document.getElementById("score").innerHTML=totalScore;
+   // const scoreCard=document.querySelector("#score");
+    //scoreCard.innerHTML=`you have got ${score}`;
     
   };
 
