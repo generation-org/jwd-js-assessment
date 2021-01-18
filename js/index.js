@@ -143,7 +143,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const submit = document.querySelector("#btnSubmit");
   submit.addEventListener("click", function() {
+    alert("Sorry this does not work please try again later");
   });
-
-    console.log(score);
-});
+  
+  });
