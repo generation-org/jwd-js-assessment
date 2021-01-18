@@ -89,21 +89,22 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         if (radioElement.checked) {
-          // code for task 1 goes here
-          let answerVal = radioElement.checked;
-          if (answerVal === true) {
-            score++;
-          } else {
-            console.log(incorrect);
-          }
+         score++
         }
       }
     });
   };
-
+//Couldn't figure out where to put eventListner.
+//const submit = document.querySelector('#btnSubmit');
+//submit.addEventListener('click', function () {
+  //clearInterval(timer);
+  //calculateScore();
+  //};
   
   
 
   // call the displayQuiz function
   displayQuiz();
 });
+
+
