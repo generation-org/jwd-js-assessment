@@ -96,11 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
           //change background color of li element here
           liElement.style.backgroundColor="green";
         }
-        elseif(radioElement.checked && quizItem.a !=i)
-        {
-            
-          liElement.style.backgroundColor="red";
-        }
+        
       
       }
 
