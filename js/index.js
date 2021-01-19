@@ -20,36 +20,46 @@
 *************************** */
 
 window.addEventListener('DOMContentLoaded', () => {
-  const start = document.querySelector('#start');
-  start.addEventListener('click', function (e) {
-    document.querySelector('#quizBlock').style.display = 'block';
-    start.style.display = 'none';
+  const start = document.querySelector("#start");
+  start.addEventListener("click", function (e) {
+    document.querySelector("#quizBlock").style.display = "block";
+    start.style.display = "none";
   });
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
   const quizArray = [
     {
-      q: 'Which is the third planet from the sun?',
-      o: ['Saturn', 'Earth', 'Pluto', 'Mars'],
+      q: "Which is the third planet from the sun?",
+      o: ["Saturn", "Earth", "Pluto", "Mars"],
       a: 1, // array index 1 - so Earth is the correct answer here
     },
     {
-      q: 'Which is the largest ocean on Earth?',
-      o: ['Atlantic Ocean', 'Indian Ocean', 'Arctic Ocean', 'Pacific Ocean'],
+      q: "Which is the largest ocean on Earth?",
+      o: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
       a: 3,
     },
     {
-      q: 'What is the capital of Australia',
-      o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
+      q: "What is the capital of Australia",
+      o: ["Sydney", "Canberra", "Melbourne", "Perth"],
       a: 1,
+    },
+    {
+      q: "What is the largest city in Australia?",
+      o: ["Melbourne", "Perth", "Sydney", "Wollongong"],
+      a: 2,
+    },
+    {
+      q: "What is the smallest planet in the Solar System?",
+      o: ["Mercury", "Jupiter", "Venus", "Earth"],
+      a: 0,
     },
   ];
 
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
-    const quizWrap = document.querySelector('#quizWrap');
-    let quizDisplay = '';
+    const quizWrap = document.querySelector("#quizWrap");
+    let quizDisplay = "";
     quizArray.map((quizItem, index) => {
       quizDisplay += `<ul class="list-group">
                    Q - ${quizItem.q}
@@ -65,26 +75,72 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Calculate the score
   const calculateScore = () => {
-    let score = 0;
+    let totalScore = 0;
+
     quizArray.map((quizItem, index) => {
       for (let i = 0; i < 4; i++) {
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
         let r = `radio_${index}_${i}`;
-        liElement = document.querySelector('#' + li);
-        radioElement = document.querySelector('#' + r);
+        liElement = document.querySelector("#" + li);
+        radioElement = document.querySelector("#" + r);
 
         if (quizItem.a == i) {
           //change background color of li element here
+          liElement.style.backgroundColor = "green";
         }
-
         if (radioElement.checked) {
-          // code for task 1 goes here
+          //code for task 1 goes here
+          if (quizItem.a == i) {
+            totalScore = totalScore + 1;
+          }
         }
       }
     });
-  };
+
+    document.getElementById("score").innerHTML = totalScore;
+    
+  }
+
+  //Task 2
+  const btnSubmit = document.querySelector("#btnSubmit");
+
+  btnSubmit.addEventListener("click", calculateScore);
+  //Task 4Reload the page when the reset button is clicked (hint: search window.location)
+  
 
   // call the displayQuiz function
   displayQuiz();
+   //const btnReset = document.querySelector("#btnReset");
+   //btnReset.addEventListener("click", window .location.reload);
+    
+ 
+//document.getElementById(("btnReset").reset());
+  //Task 5
+
+  //Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
+
+  var total_seconds = 20 * 1;
+  var c_minutes = parseInt(total_seconds / 60);
+  var c_seconds = parseInt(total_seconds % 60);
+  var timer;
+
+  function CheckTime() {
+    document.getElementById("time").innerHTML =
+      "Time Left: " + c_minutes + " minutes " + c_seconds + " seconds ";
+
+    if (total_seconds <= 0) {
+      calculateScore();
+    } else {
+      total_seconds = total_seconds - 1;
+      c_minutes = parseInt(total_seconds / 60);
+      c_seconds = parseInt(total_seconds % 60);
+      timer = setTimeout(CheckTime, 1000);
+    }
+    
+  }
+  timer = setTimeout(CheckTime, 1000);
+  
 });
+
+  
