@@ -24,6 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
+    countDownTimer();
   });
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
@@ -44,6 +45,16 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is the capital of UK',
+      o: ['Liverpool', 'London', 'Manchester', 'Bristol'],
+      a: 1,
+    },
+    {
+      q: 'What is the capital of USA',
+      o: ['Washinghton', 'New York', 'Boston', 'Denver'],
+      a: 0,
+    },
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -63,6 +74,21 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+
+//Event listner for submit and reset button
+quizBlock.addEventListener("click", (event) => {
+  //Submit Quiz
+  if (event.target.classList.contains("btnSubmit1"))
+  {
+    calculateScore();
+  }
+ // Reset content
+  if (event.target.classList.contains("btnReset1"))
+  {
+    location.reload();    
+  }
+});
+
   // Calculate the score
   const calculateScore = () => {
     let score = 0;
@@ -76,15 +102,70 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
+          liElement.style.backgroundColor= "#FDFF47";
         }
 
         if (radioElement.checked) {
           // code for task 1 goes here
+            if(quizItem.a==i)
+            {
+              score++;              
+            }
+
         }
       }
     });
+    // Display Score    
+    document.getElementById('score').innerHTML=`Score is ${score}/5`;
+    
   };
 
   // call the displayQuiz function
   displayQuiz();
 });
+
+//----------------------------
+//CountDown Timer
+const countDownTimer= () =>{
+
+var sec         = 18,
+    countDiv    = document.getElementById("time"),
+    secpass,
+    countDown   = setInterval(function () {
+        'use strict';
+        
+        secpass();
+    }, 1000);
+
+function secpass() {
+    'use strict';
+    
+    var min     = Math.floor(sec / 60),
+        remSec  = sec % 60;
+    
+    if (remSec < 10) {
+        
+        remSec = '0' + remSec;
+    
+    }
+    if (min < 10) {
+        
+        min = '0' + min;
+    
+    }
+    countDiv.innerHTML = min + ":" + remSec;
+    
+    if (sec > 0) {
+        
+        sec = sec - 1;
+        
+    } else {
+        
+        clearInterval(countDown);
+        
+        countDiv.innerHTML = 'countdown done';
+        
+    }
+}
+
+}
