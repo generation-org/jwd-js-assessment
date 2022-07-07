@@ -24,12 +24,10 @@ window.addEventListener('DOMContentLoaded', () => {
   start.addEventListener('click', function (e) {
   document.querySelector('#quizBlock').style.display = 'block';
   start.style.display = 'none';
-  const timerContainer = document.quetElementById(".timer");
-  const buttonSubmit = document.getElementById(".btnSubmit")
-  const buttonReset = document.getElementById(".btnReset")
+  const buttonSubmit = document.getElementById(".btnSubmit");
+  const buttonReset = document.getElementById(".btnReset");
+  const timer = document.getElementById(".time");
   
-    
-
   });
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
@@ -81,7 +79,9 @@ window.addEventListener('DOMContentLoaded', () => {
       quizWrap.innerHTML = quizDisplay;
     });
   };
-btnSubmit.addEventListener
+
+  btnSubmit.addEventListener
+
 
   // Calculate the score
   const calculateScore = () => {
@@ -117,31 +117,40 @@ function reloadPage() {
 }
 
 
-//set Timeout attempt 1 id="time"
-/*function timeRemaining (duration, display) {
+//Remaining time
 
-  let timer = duration, minutes, seconds;
+/*const startingMinutes = 1;
+ let time = startingMinutes*60;
+ const timerEl = document.getElementById('timer');
+ setInterval(updateCountdown, 1000);
 
-  set interval(function (){
-
-    minutes = parseInt(timer / 60,10);
-    seconds = parseInt(timer % 60, 10);
-
-    minutes = minutes <10 ? "0 + minmutes : minutes;
-
-    display.textContenc = minutes + ":" + seconds;
-
-    if(--timer < 0 ){
-      timer = duration;
-    }
-
- 
-  }, 1000);
-}
-
-//window.onload = function(){
-  //let duration =60 * 4; // seconds
-  let display = document.querySelector(#time);
-
-  timeRemainig(duration, display);// inicia a funcao
+function updateCountdown() {
+  const minutes= Math.floor(time/60);
+  let seconds = time % 60;
+    timerEl.innerHTML = `${minutes}: ${seconds}`;
+    time--;
 }*/
+
+// Set the date we're counting down to
+var minutesToAdd = 1;
+var currentDate = new Date();
+var countDownDate = new Date(currentDate.getTime() + minutesToAdd * 60000);
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+    
+  var distance = countDownDate - now;
+    
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("time").innerHTML = minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("time").innerHTML = "Times Up";
+  }
+}, 1000);
