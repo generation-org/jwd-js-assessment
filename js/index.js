@@ -33,6 +33,8 @@ window.addEventListener('DOMContentLoaded', () => {
       q: 'Which is the third planet from the sun?',
       o: ['Saturn', 'Earth', 'Pluto', 'Mars'],
       a: 1, // array index 1 - so Earth is the correct answer here
+     
+
     },
     {
       q: 'Which is the largest ocean on Earth?',
@@ -44,7 +46,19 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is the capital of France',
+      o: ['Paris', 'Lyon', 'Marseille', 'Nice'],
+      a: 0,
+    },
+    {
+      q: 'What is the capital of Germany',
+      o: ['Berlin', 'Munich', 'Frankfurt', 'Hamburg'],
+      a: 0,
+    }
   ];
+
+   
 
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
@@ -76,14 +90,56 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
+          liElement.style.backgroundColor = "#00A600";
         }
 
         if (radioElement.checked) {
-          // code for task 1 goes here
+          // code for task 1 goes here plus else statement just to be extra
+          if (quizItem.a == i) {
+            score += 1;
+          } else {
+            
+            liElement.style.backgroundColor = "#FF0000";
+          }
         }
       }
-    });
+      const scoreDisplay = document.querySelector("#score");
+      scoreDisplay.innerHTML = ` TOTAL SCORE: ${score} / ${quizArray.length}`;
+  
+      btnSubmit.style.display = "none";
+     
+    })
+  
   };
+
+ 
+ // countdown timer //
+ let sec = 60;
+ let timer = setInterval(myTimer, 1000);
+ function myTimer() {
+     document.getElementById('time').innerHTML = sec + " sec";
+     sec--;
+     if (sec == -1) {
+         clearInterval(timer);
+         calculateScore();
+       
+         alert(`Times up!!`); 
+     }
+   };
+   
+
+
+ // event listener  submit button
+  const btnSubmit = document.querySelector("#btnSubmit");
+  btnSubmit.addEventListener("click", () => {
+    calculateScore();
+  });
+
+  // event listener reset button 
+  const btnReset = document.querySelector("#btnReset");
+  btnReset.addEventListener("click", () => {
+    location.reload();
+  });
 
   // call the displayQuiz function
   displayQuiz();
