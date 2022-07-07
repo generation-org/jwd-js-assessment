@@ -22,8 +22,14 @@
 window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
   start.addEventListener('click', function (e) {
-    document.querySelector('#quizBlock').style.display = 'block';
-    start.style.display = 'none';
+  document.querySelector('#quizBlock').style.display = 'block';
+  start.style.display = 'none';
+  const timerContainer = document.quetElementById(".timer");
+  const buttonSubmit = document.getElementById(".btnSubmit")
+  const buttonReset = document.getElementById(".btnReset")
+  
+    
+
   });
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
@@ -55,6 +61,9 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 0,
     },
   ];
+  
+  //Add an Event listener for the submit button, which will display the score and highlight 
+  //the correct answers when the button is clicked. Use the code from lines 67 to 86 to help you
 
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
@@ -72,6 +81,7 @@ window.addEventListener('DOMContentLoaded', () => {
       quizWrap.innerHTML = quizDisplay;
     });
   };
+btnSubmit.addEventListener
 
   // Calculate the score
   const calculateScore = () => {
@@ -86,6 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (quizItem.a == i) {
           //change background color of li element here
+          quizwrap.style.backgroundcolor = "#db34eb"
         }
 
         if (radioElement.checked) {
@@ -98,3 +109,39 @@ window.addEventListener('DOMContentLoaded', () => {
   // call the displayQuiz function
   displayQuiz();
 });
+
+//4. Reload the page when the reset button is clicked (hint: search window.location)
+
+function reloadPage() {
+  window.location.assign("http://127.0.0.1:5500/index.html")
+}
+
+
+//set Timeout attempt 1 id="time"
+/*function timeRemaining (duration, display) {
+
+  let timer = duration, minutes, seconds;
+
+  set interval(function (){
+
+    minutes = parseInt(timer / 60,10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes <10 ? "0 + minmutes : minutes;
+
+    display.textContenc = minutes + ":" + seconds;
+
+    if(--timer < 0 ){
+      timer = duration;
+    }
+
+ 
+  }, 1000);
+}
+
+//window.onload = function(){
+  //let duration =60 * 4; // seconds
+  let display = document.querySelector(#time);
+
+  timeRemainig(duration, display);// inicia a funcao
+}*/
