@@ -20,18 +20,19 @@
 *************************** */
 
 window.addEventListener('DOMContentLoaded', () => {
-  const start = document.querySelector('#start');
-  start.addEventListener('click', function (e) {
+const start = document.querySelector('#start');
+ start.addEventListener('click', function (e) {
   document.querySelector('#quizBlock').style.display = 'block';
   start.style.display = 'none';
-  const buttonSubmit = document.getElementById(".btnSubmit");
-  const buttonReset = document.getElementById(".btnReset");
-  const timer = document.getElementById(".time");
-  
-  });
+  const buttonSubmit = document.getElementById("btnSubmit");
+  const buttonReset = document.getElementById("btnReset");
+  const timer = document.getElementById("time");
+   });
+
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
+
   const quizArray = [
     {
       q: 'Which is the third planet from the sun?',
@@ -60,12 +61,10 @@ window.addEventListener('DOMContentLoaded', () => {
     },
   ];
   
-  //Add an Event listener for the submit button, which will display the score and highlight 
-  //the correct answers when the button is clicked. Use the code from lines 67 to 86 to help you
-
+  
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
-    const quizWrap = document.querySelector('#quizWrap');
+  const quizWrap = document.querySelector('#quizWrap');
     let quizDisplay = '';
     quizArray.map((quizItem, index) => {
       quizDisplay += `<ul class="list-group">
@@ -79,36 +78,9 @@ window.addEventListener('DOMContentLoaded', () => {
       quizWrap.innerHTML = quizDisplay;
     });
   };
+ 
+  //Calculate Score
 
-  btnSubmit.addEventListener
-
-
-  // Calculate the score
-  const calculateScore = () => {
-    let score = 0;
-    quizArray.map((quizItem, index) => {
-      for (let i = 0; i < 4; i++) {
-        //highlight the li if it is the correct answer
-        let li = `li_${index}_${i}`;
-        let r = `radio_${index}_${i}`;
-        liElement = document.querySelector('#' + li);
-        radioElement = document.querySelector('#' + r);
-
-        if (quizItem.a == i) {
-          //change background color of li element here
-          quizwrap.style.backgroundcolor = "#db34eb"
-        }
-
-        if (radioElement.checked) {
-          // code for task 1 goes here
-        }
-      }
-    });
-  };
-
-  // call the displayQuiz function
-  displayQuiz();
-});
 
 //4. Reload the page when the reset button is clicked (hint: search window.location)
 
@@ -117,31 +89,22 @@ function reloadPage() {
 }
 
 
-//Remaining time
+//5. Set Remaining time
 
-/*const startingMinutes = 1;
- let time = startingMinutes*60;
- const timerEl = document.getElementById('timer');
- setInterval(updateCountdown, 1000);
-
-function updateCountdown() {
-  const minutes= Math.floor(time/60);
-  let seconds = time % 60;
-    timerEl.innerHTML = `${minutes}: ${seconds}`;
-    time--;
-}*/
-
-// Set the date we're counting down to
-var minutesToAdd = 1;
+var minutesToAdd = 5;
 var currentDate = new Date();
 var countDownDate = new Date(currentDate.getTime() + minutesToAdd * 60000);
 
+
 var x = setInterval(function() {
+
 
   var now = new Date().getTime();
     
+ 
   var distance = countDownDate - now;
     
+  
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
