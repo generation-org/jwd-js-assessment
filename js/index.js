@@ -44,6 +44,16 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is the biggest forest in the world?',
+      o: ['Primorye Forest', 'Tropical rainforest in Borneo', 'Amazon', 'New Guinea Tropical Rainforest'],
+      a: 1,
+    },
+    {
+      q: 'What language does people speak in Brazil?',
+      o: ['English', 'Spanish', 'Portuguese', 'Japanese'],
+      a: 1,
+    }
   ];
 
   // function to Display the quiz questions and answers from the object
