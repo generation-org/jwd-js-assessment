@@ -44,6 +44,16 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'In which ocean "Bernmuda Triangle" region is located',
+      o: ['Atlantic', 'Indian', 'Pacific', 'Arctic'],
+      a: 0,
+    },
+    {
+      q: 'Which country is also Known as the "Land of Rising Sun"',
+      o: ['Japan', 'New Zeland', 'Fiji', 'China'],
+      a: 0,
+    },
   ];
 
   // function to Display the quiz questions and answers from the object
