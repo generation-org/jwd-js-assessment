@@ -81,10 +81,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 let submitBtn = document.getElementById('btnSubmit');
-submitBtn.addEventListener('click', () =>{
+submitBtn.addEventListener('click', () => {
+  calculateScore();
+});
 console.log('correct');
-  // Calculate the score
- // const calculateScore = () => {
+   // Calculate the score
+ const calculateScore = () => {
     let score = 0;
     quizArray.map((quizItem, index) => {
       for (let i = 0; i < 4; i++) {
@@ -94,17 +96,25 @@ console.log('correct');
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
 
-        if (quizItem.a == i) {
-          //change background color of li element here
-        }
-
         if (radioElement.checked) {
           // code for task 1 goes here
+          
+          if (quizItem.a == i) {
+            //change background color of li element here
+            score = score + 1;
+           liElement.style.backgroundColor="aqua";
+          }
+          else{
+            
+            liElement.style.backgroundColor="red";
+          }
+         
         }
+
       }
     });
   
-})
+}
 
   // reset
  let resetAll = document.getElementById('btnReset'); 
@@ -112,18 +122,17 @@ console.log('correct');
   resetAll.onclick = location.reload();
   });
   
-
+  let count = 30;
+  var interval = setInterval(function(){
+    document.getElementById('time').innerHTML=count;
+    count--;
+    if (count === 0){
+      clearInterval(interval);
+      document.getElementById('time').innerHTML='Done. Try again';
+      
+    }
+  }, 1000);
   
 });
 
 
-let count = 30;
-var interval = setInterval(function(){
-  document.getElementById('time').innerHTML=count;
-  count--;
-  if (count === 0){
-    clearInterval(interval);
-    document.getElementById('time').innerHTML='Done. Try again';
-    
-  }
-}, 1000);
