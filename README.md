@@ -12,7 +12,8 @@ Complete the following tasks:
 
 ~~3. Add 2 more questions to the app (each question must have 4 options)~~
 
-4. Reload the page when the reset button is clicked (hint: search window.location)
+~~4. Reload the page when the reset button is clicked (hint: search window.location)~~
+    websites: https://stackoverflow.com/questions/41904975/refresh-page-and-run-function-after-javascript
 
 5. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
 

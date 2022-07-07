@@ -19,12 +19,19 @@
       5. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
 *************************** */
 
-window.addEventListener('DOMContentLoaded', () => {
-  const start = document.querySelector('#start');
-  start.addEventListener('click', function (e) {
-    document.querySelector('#quizBlock').style.display = 'block';
-    start.style.display = 'none';
-  });
+window.onload = function() {
+  var reloading = sessionStorage.getItem("reloading");
+  if (reloading) {
+      sessionStorage.removeItem("reloading");
+      showQuiz();
+  }
+}
+
+function reloadP() {
+  sessionStorage.setItem("reloading", "true");
+  document.location.reload();
+}
+
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
@@ -95,14 +102,10 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // call the displayQuiz function
-  displayQuiz();
-});
 
+  function showQuiz() {
+      document.querySelector('#quizBlock').style.display = 'block';
+      start.style.display = 'none';
+      displayQuiz();
+  }
 
-// const btnReset = document.querySelector('#btnReset');
-// btnReset.addEventListener('click', refreshPage());
-
-function refreshPage(){
-  window.location.reload();
-} 
