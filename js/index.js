@@ -12,7 +12,7 @@
       2. Add an Event listener for the submit button, which will display the score and highlight 
          the correct answers when the button is clicked. Use the code from lines 67 to 86 to help you.
 
-      3. Add 2 more questions to the app (each question must have 4 options).
+      DONE == 3. Add 2 more questions to the app (each question must have 4 options).
 
       4. Reload the page when the reset button is clicked (hint: search window.location)
 
@@ -47,12 +47,12 @@ window.addEventListener('DOMContentLoaded', () => {
     {
       q: 'What is the biggest forest in the world?',
       o: ['Primorye Forest', 'Tropical rainforest in Borneo', 'Amazon', 'New Guinea Tropical Rainforest'],
-      a: 1,
+      a: 2,
     },
     {
       q: 'What language does people speak in Brazil?',
       o: ['English', 'Spanish', 'Portuguese', 'Japanese'],
-      a: 1,
+      a: 2,
     }
   ];
 
@@ -98,3 +98,11 @@ window.addEventListener('DOMContentLoaded', () => {
   // call the displayQuiz function
   displayQuiz();
 });
+
+
+// const btnReset = document.querySelector('#btnReset');
+// btnReset.addEventListener('click', refreshPage());
+
+function refreshPage(){
+  window.location.reload();
+} 
