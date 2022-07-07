@@ -137,6 +137,25 @@ const timeDiv = document.querySelector('#time');
 setInterval(timer, 1000);
 
 function timer() {
+
+  const minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+  timeDiv.innerHTML = `${minutes}: ${seconds}`
+  timeLeft--;
+
+}
+
+
+/// =================== MY TRIAL CODE ===================
+/*
+const startingTime = 10;
+let timeLeft = startingTime * 60;
+
+const timeDiv = document.querySelector('#time');
+
+setInterval(timer, 1000);
+
+function timer() {
   document.querySelector('#btnSubmit');
   if (btnSubmit.status = submitted) {
     timeDiv.innerHTML = "Well Done! You have completed the task!"
@@ -152,7 +171,9 @@ function timer() {
     timeDiv.innerHTML = "Time is finished"
     calculateScore();
   }
-}
+*/
+  //==========
+
 
   // if () {
   //   timeElement.innerHTML = "Well Done! you submitted on time!"
