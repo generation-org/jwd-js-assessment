@@ -24,6 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
   start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
+    // call the displayQuiz function
+  displayQuiz();
   });
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
@@ -44,6 +46,17 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    // new questions 
+    {
+      q: 'What Is The Currency Of Japan?',
+      o: ['Dollar', 'Yen', 'Rupees', 'Sterling pound'],
+      a: 2,
+    },
+    {
+      q: 'Who has won the most Academy Awards?',
+      o: ['James Cameron', 'Katherine Hepburn', 'Walt Disney', 'Steven Spielberg'],
+      a: 1,
+    },
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -57,14 +70,21 @@ window.addEventListener('DOMContentLoaded', () => {
                     <li class="list-group-item" id="li_${index}_1"><input type="radio" name="radio${index}" id="radio_${index}_1"> ${quizItem.o[1]}</li>
                     <li class="list-group-item"  id="li_${index}_2"><input type="radio" name="radio${index}" id="radio_${index}_2"> ${quizItem.o[2]}</li>
                     <li class="list-group-item"  id="li_${index}_3"><input type="radio" name="radio${index}" id="radio_${index}_3"> ${quizItem.o[3]}</li>
+                   
+                    
                     </ul>
                     <div>&nbsp;</div>`;
       quizWrap.innerHTML = quizDisplay;
     });
   };
 
+
+
+let submitBtn = document.getElementById('btnSubmit');
+submitBtn.addEventListener('click', () =>{
+console.log('correct');
   // Calculate the score
-  const calculateScore = () => {
+ // const calculateScore = () => {
     let score = 0;
     quizArray.map((quizItem, index) => {
       for (let i = 0; i < 4; i++) {
@@ -83,8 +103,27 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-  };
+  
+})
 
-  // call the displayQuiz function
-  displayQuiz();
+  // reset
+ let resetAll = document.getElementById('btnReset'); 
+ resetAll.addEventListener('click',()=> {
+  resetAll.onclick = location.reload();
+  });
+  
+
+  
 });
+
+
+let count = 30;
+var interval = setInterval(function(){
+  document.getElementById('time').innerHTML=count;
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+    document.getElementById('time').innerHTML='Done. Try again';
+    
+  }
+}, 1000);

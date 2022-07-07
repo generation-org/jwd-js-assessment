@@ -15,6 +15,15 @@
       crossorigin="anonymous"
     />
     <title>Quiz</title>
+
+    <style>
+     .timeBlink {
+      font-weight: bolder;
+      background-color: aqua;
+      padding: 5px;
+     } 
+
+    </style>
   </head>
   <body>
     <div class="container m-5" id="start">
@@ -28,10 +37,12 @@
     </div>
 
     <!-- (B) QUIZ CONTAINER -->
+    <form id="jwdQuiz">
     <div class="container" id="quizBlock" style="display: none">
       <div class="mb-5">
         <h2>Test your knowledge</h2>
-        - Time remaining <span id="time">01:00</span>
+        - Time remaining <span id="time" class="timeBlink"></span>
+        <span id="time" class="timesUp"></span>
       </div>
       <div id="quizWrap"></div>
 
@@ -42,10 +53,10 @@
         <button type="button" class="btn btn-primary" id="btnReset">
           Reset Quiz
         </button>
-        <span id="score"></span>
+        <span id="score" style="color: red;"></span>
       </div>
     </div>
-
+  </form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
