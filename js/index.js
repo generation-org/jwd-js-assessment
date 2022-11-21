@@ -12,7 +12,7 @@
       2. Add an Event listener for the submit button, which will display the score and highlight 
          the correct answers when the button is clicked. Use the code from lines 67 to 86 to help you.
 
-      3. Add 2 more questions to the app (each question must have 4 options).
+      ----------3. Add 2 more questions to the app (each question must have 4 options).
 
       4. Reload the page when the reset button is clicked (hint: search window.location)
 
@@ -32,18 +32,28 @@ window.addEventListener('DOMContentLoaded', () => {
     {
       q: 'Which is the third planet from the sun?',
       o: ['Saturn', 'Earth', 'Pluto', 'Mars'],
-      a: 1, // array index 1 - so Earth is the correct answer here
+      a: 1 // array index 1 - so Earth is the correct answer here
     },
     {
       q: 'Which is the largest ocean on Earth?',
       o: ['Atlantic Ocean', 'Indian Ocean', 'Arctic Ocean', 'Pacific Ocean'],
-      a: 3,
+      a: 3
     },
     {
-      q: 'What is the capital of Australia',
+      q: 'What is the capital of Australia?',
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
-      a: 1,
+      a: 1
     },
+    {
+      q: 'What art form is described as "decorative handwriting or handwritten lettering?',
+      o: ['Painting', 'Calligraphy', 'Typography', 'Drawing'],
+      a: 2
+    },
+    {
+      q: 'How many bones are in the ear?',
+      o: ['1', '2', '3', '4'],
+      a: 3
+    }
   ];
 
   // function to Display the quiz questions and answers from the object
