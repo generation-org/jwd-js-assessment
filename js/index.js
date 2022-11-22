@@ -44,6 +44,16 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is the national animal of Scotland?',
+      o: ['Dragon', 'Big Foot', 'Unicorn', 'Loch Ness Monster'],
+      a: 2,
+    },
+    {
+      q: 'What human body part cannot heal itself?',
+      o: ['Teeth', 'Brain', 'Skin', 'Bones'],
+      a: 0,
+    },
   ];
 
   // function to Display the quiz questions and answers from the object
