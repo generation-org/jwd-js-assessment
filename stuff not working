@@ -1,0 +1,38 @@
+
+document.getElementById("btnReset").addEventListener("click", reload);
+function location.reload();
+
+document.getElementById("btnReset").addEventListener("click",function location.reload(););
+
+document.getElementById("btnReset").addEventListener("click", reload);
+window.location.reload();
+
+let correct = option.dataset.idx == quiz.data[quiz.now].a;
+    if (correct) {
+      quiz.score++;
+      option.classList.add("correct");
+    } else {
+      option.classList.add("wrong");
+    }
+
+    quiz.now++;
+    setTimeout(() => {
+      if (quiz.now < quiz.data.length) { quiz.draw(); }
+      else {
+        quiz.hQn.innerHTML = `You have answered ${quiz.score} of ${quiz.data.length} correctly.`;
+        quiz.hAns.innerHTML = "";
+      }
+    }, 1000);
+  },
+
+  reset : () => {
+    quiz.now = 0;
+    quiz.score = 0;
+    quiz.draw();
+  }
+};
+window.addEventListener("load", quiz.init);
+
+
+setTimeout(mytimer, 3000)
+

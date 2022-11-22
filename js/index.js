@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', () => {
       quizWrap.innerHTML = quizDisplay;
     });
   };
-
+  
   // Calculate the score
   const calculateScore = () => {
     let score = 0;
@@ -85,16 +85,38 @@ window.addEventListener('DOMContentLoaded', () => {
         radioElement = document.querySelector('#' + r);
 
         if (quizItem.a == i) {
+          
           //change background color of li element here
         }
 
         if (radioElement.checked) {
           // code for task 1 goes here
+          addEventListener('submit', (event) => {});
+
         }
       }
     });
   };
 
+ 
+
   // call the displayQuiz function
   displayQuiz();
+
+  document.getElementById("btnReset").addEventListener("click", reload);
+  window.location.reload();
 });
+
+
+
+setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("time").innerHTML=
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}
+
+
