@@ -105,6 +105,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById("btnReset").addEventListener("click", reload);
   window.location.reload();
+  
+  function logReset(event) {
+  
+}
+
+const form = document.getElementById('form');
+const log = document.getElementById('log');
+form.addEventListener('reset', logReset);
 });
 
 

@@ -36,3 +36,8 @@ window.addEventListener("load", quiz.init);
 
 setTimeout(mytimer, 3000)
 
+function startTime() {
+  const date = new Date();
+  document.getElementById("time").innerHTML = date.toLocaleTimeString();
+  setTimeout(function() {startTime()}, 1000);
+}
